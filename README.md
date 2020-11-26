@@ -2,7 +2,7 @@
 
 - [Figma](https://www.figma.com/file/gAkVx9CdOqnJcCjJ7nVNkw/job-search?node-id=0%3A1)
 - [Challenge](https://devchallenges.io/challenges/TtUjDt19eIHxNQ4n5jps)
-- [Hosted application]()
+- [Hosted application](https://mateuszfranke.github.io/github-jobs/)
 - [API](https://jobs.github.com/api)
 
 ## User stories
