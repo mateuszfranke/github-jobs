@@ -1,27 +1,23 @@
 # GithubJobs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
+- [Figma](https://www.figma.com/file/gAkVx9CdOqnJcCjJ7nVNkw/job-search?node-id=0%3A1)
+- [Challenge](https://devchallenges.io/challenges/TtUjDt19eIHxNQ4n5jps)
+- [Hosted application]()
+- [API](https://jobs.github.com/api)
 
-## Development server
+## User stories
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- I can see a list of jobs in a city by default
+- I can search for jobs with a given keyword
+- I can search for jobs with a city name, zip code or other location
+- I can select one option from at least 4 pre-defined options
+- I can search for a full-time job only
+- I can see a list of jobs with their logo, company name, location, and posted time.
+- When I select a job, I can see job descriptions and how to apply like the given design.
+- When I am on the job details page, I can go back to the search page
+- I can see a list of jobs in the closest city from my location by default
+- I can see jobs in different pages, 5 items each page
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Stack
+- Angular 10
+- SCSS(SASS)
