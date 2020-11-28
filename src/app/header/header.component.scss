@@ -10,6 +10,15 @@ $search-height:4rem;
   height: 9rem;
   border-radius: 0.5rem;
   margin-top: 2rem;
+
+}
+
+.grid{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr;
+  padding: 0 10%;
 }
 
 header{
@@ -29,26 +38,30 @@ h1:first-of-type{
 
 input{
   padding: 0;
-  border: none;
+  border: 0;
+  -webkit-appearance: none;
+  width: 100%;
 }
-
 input:focus{
   outline: none;
 }
-
 button{
   padding: 0;
   background-color: $blue-1;
   color: $white-1;
   border: none;
+  height: 100%;
+  width: 5rem;
 }
 
 .btn-wrapper{
   background-color: $white-1;
   height: $search-height;
-
+  padding: 0.5rem;
 }
 
 .flex{
   display: flex;
+  background-color: white;
+  border-radius: $input--border-radius;
 }
