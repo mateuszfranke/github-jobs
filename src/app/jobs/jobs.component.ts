@@ -32,7 +32,11 @@ export class JobsComponent implements OnInit {
   }
 
   daysPassedFromPublication(date: string): string{
-    return '2 days ago';
+    const currentDate = new Date();
+    const newDate = new Date(date);
+    const differenceInTime = currentDate.getTime() - newDate.getTime();
+    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+    return `${Math.floor(differenceInDays).toString()} days ago`;
   }
 
 }
