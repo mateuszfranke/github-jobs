@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 @import "../variabels";
-$search-height:4rem;
+$text-indent:3rem;
 
 .header--bg-image{
   background-image: url("../../assets/c155567b9ef7880cd9b854cd00a20f4f.png");
@@ -46,12 +46,13 @@ input{
   background-repeat: no-repeat;
   background-position: 1rem 1rem;
   background-size: 1.5rem;
+  text-indent:$text-indent;
 
 }
 
 input::placeholder{
   color: $grey-1;
-  text-indent: 3rem;
+  text-indent: $text-indent;
 }
 
 input:focus{
