@@ -40,7 +40,7 @@
 
 .flex{
   display: flex;
-  //justify-content: space-between;
+
   color: $grey-1;
 }
 .flex-1{
@@ -49,6 +49,10 @@
   align-items: center;
 }
 
+.flex-item{
+  margin-right: 2rem;
+}
+
 .icon {
-  margin:1rem 0.5rem;
+  margin: 1rem 0.5rem;
 }

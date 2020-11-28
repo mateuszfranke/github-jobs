@@ -6,6 +6,7 @@ import { JobsComponent } from './jobs/jobs.component';
 import { JobComponent } from './jobs/job/job.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,11 @@ import { SearchComponent } from './search/search.component';
     JobsComponent,
     JobComponent,
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
