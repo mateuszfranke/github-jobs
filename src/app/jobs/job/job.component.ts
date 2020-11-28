@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
+import {GithubJobsModel} from '../../models/github-jobs.model';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-job',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobComponent implements OnInit {
 
+  @Input() job: GithubJobsModel = new GithubJobsModel();
   constructor() { }
 
   ngOnInit(): void {

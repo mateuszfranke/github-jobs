@@ -1,14 +1,14 @@
 <section class="grid">
   <div>
-    <div class="logo"></div>
+    <img [src]="job.company_logo" class="logo">
   </div>
   <div>
-    <h5 class="company--name">Kasisto</h5>
-    <p class="company--position">Front-End Software Engineer</p>
-    <div class="company--job-time">Full time</div>
+    <h5 class="company--name">{{job.company}}</h5>
+    <p class="company--position">{{job.title}}</p>
+    <div class="company--job-time">{{job.type}}</div>
     <div class="flex">
-      <div class="flex-1 flex-item"><i class="material-icons icon">public</i>New York</div>
-      <div class="flex-1 flex-item"><i class="material-icons icon">access_time</i>5 days ago</div>
+      <div class="flex-1 flex-item"><i class="material-icons icon">public</i>{{job.location}}</div>
+      <div class="flex-1 flex-item"><i class="material-icons icon">access_time</i>{{job.created_at}}</div>
     </div>
 
   </div>
