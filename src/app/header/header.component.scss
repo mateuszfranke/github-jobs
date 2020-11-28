@@ -37,11 +37,23 @@ h1:first-of-type{
 }
 
 input{
-  padding: 0;
+  //padding: 0;
   border: 0;
   -webkit-appearance: none;
   width: 100%;
+  border-radius: 2rem;
+  background-image: url("../../assets/briefcase-outline.png");
+  background-repeat: no-repeat;
+  background-position: 1rem 1rem;
+  background-size: 1.5rem;
+
 }
+
+input::placeholder{
+  color: $grey-1;
+  text-indent: 3rem;
+}
+
 input:focus{
   outline: none;
 }
@@ -50,18 +62,24 @@ button{
   background-color: $blue-1;
   color: $white-1;
   border: none;
-  height: 100%;
-  width: 5rem;
+  height: 3rem;
+  width: 6rem;
+  border-radius: 0.5rem;
 }
 
 .btn-wrapper{
   background-color: $white-1;
-  height: $search-height;
-  padding: 0.5rem;
+  padding: 0.25rem;
+  display: grid;
+  align-items: center;
+  border-radius: 2rem;
 }
 
 .flex{
   display: flex;
+  justify-content: space-between;
   background-color: white;
-  border-radius: $input--border-radius;
+  //border-radius: $input--border-radius;
+
+
 }
