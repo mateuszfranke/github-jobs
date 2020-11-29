@@ -1,6 +1,7 @@
 <section class="grid">
-  <div>
-    <img [src]="job.company_logo" class="logo">
+  <div class="company__logo">
+<!--    <img [src]="job.company_logo" class="logo">-->
+    <div [ngStyle]="{'background-image': 'url(' + job.company_logo + ')'}" class="logo"></div>
   </div>
   <div>
     <h5 class="company--name">{{job.company}}</h5>
@@ -10,6 +11,5 @@
       <div class="flex-1 flex-item"><i class="material-icons icon">public</i>{{job.location}}</div>
       <div class="flex-1 flex-item"><i class="material-icons icon">access_time</i>{{job.created_at}}</div>
     </div>
-
   </div>
 </section>

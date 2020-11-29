@@ -12,6 +12,19 @@
 .logo{
   width: 8rem;
   height: 8rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../../../assets/c155567b9ef7880cd9b854cd00a20f4f.png");
+  border-radius: 0.5rem;
+}
+
+.company__logo{
+
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 1rem 3rem 1rem;
+
 }
 
 .company--name{
