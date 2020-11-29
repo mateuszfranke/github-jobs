@@ -3,9 +3,9 @@
     <h1>Jobs</h1>
   <div class="header--bg-image grid">
     <div class="flex">
-    <input type="text" placeholder="Title, companies, experti...">
+    <input type="text" placeholder="Title, companies, experti..." [(ngModel)]="keywords">
       <div class="btn-wrapper">
-        <button>Search</button>
+        <button (click)="onSearch()">Search</button>
       </div>
     </div>
   </div>

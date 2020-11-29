@@ -14,4 +14,9 @@ export class GithubJobsService{
     const url = `${environment.herokuUrl}` + 'https://jobs.github.com/positions.json?description=python&location=new+york';
     return this.http.get<GithubJobsModel[]>(url);
   }
+  getDescriptions(description: string): Observable<GithubJobsModel[]>{
+    const githubJobsUrl = `https://jobs.github.com/positions.json?description=${description}`;
+    const url = `${environment.herokuUrl}${githubJobsUrl}`;
+    return this.http.get<GithubJobsModel[]>(url);
+  }
 }

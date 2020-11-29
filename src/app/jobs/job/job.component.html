@@ -1,7 +1,6 @@
 <section class="grid">
   <div class="company__logo">
-<!--    <img [src]="job.company_logo" class="logo">-->
-    <div [ngStyle]="{'background-image': 'url(' + job.company_logo + ')'}" class="logo"></div>
+    <div  [style.background-image]="'url(' + job.company_logo + ')'" class="logo"></div>
   </div>
   <div>
     <h5 class="company--name">{{job.company}}</h5>
