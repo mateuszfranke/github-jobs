@@ -1,0 +1,78 @@
+@import "../variabels";
+
+.back{
+  color: $blue-1;
+  font-weight: 600;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  cursor: pointer;
+
+  margin: 2rem 0;
+
+  p{
+    margin: 0 0.5rem;
+    display: inline-block;
+  }
+}
+
+.arrow {
+  transform: rotate(180deg);
+
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 2rem;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+
+h2{
+  color: $blue-2;
+  margin: 0.5rem 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+h5{
+  color: $grey-1;
+}
+
+.company--job-time{
+  border: 2px solid $blue-2;
+  color: $blue-2;
+  width: 4rem;
+  height: 2rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+.flex{
+  display: flex;
+
+  color: $grey-1;
+}
+.flex-1{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 0.8rem;
+  color: $grey-1;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.flex-item{
+  margin-right: 2rem;
+}
+
+.icon {
+  margin: 0 0.5rem 0 0;
+  font-size: 1rem;
+
+}
