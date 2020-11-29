@@ -8,6 +8,14 @@ import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { DetailsComponent } from './details/details.component';
+import {RouterModule, Routes} from '@angular/router';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes =  [
+  {path: '', component: HomeComponent},
+  {path: 'details', component: DetailsComponent}
+];
 
 @NgModule({
   declarations: [
@@ -16,11 +24,14 @@ import {FormsModule} from '@angular/forms';
     JobComponent,
     HeaderComponent,
     SearchComponent,
+    DetailsComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

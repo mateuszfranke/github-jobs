@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {GithubJobsService} from '../services/github-jobs.service';
 import {DataService} from '../services/data.service';
 import {GithubJobsModel} from '../models/github-jobs.model';
@@ -15,7 +15,8 @@ export class HeaderComponent implements OnInit {
   search: SearchModel;
 
   constructor(private githubServices: GithubJobsService,
-              private dataService: DataService) { }
+              private dataService: DataService) {
+  }
 
 
   ngOnInit(): void {
@@ -27,11 +28,38 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  onSearch(): void {
-    this.githubServices.getDescriptions(this.keywords).subscribe((observer: GithubJobsModel[]) => {
+   onSearch() {
+    this.githubServices.getDescriptions(this.keywords, this.search, 0).subscribe((observer: GithubJobsModel[]) => {
       this.dataService.gitHubJobs.next(observer);
-      console.log(observer);
+      if (observer.length <= 50) {
+        console.log('finished');
+      }else{
+        console.log('next');
+      }
     });
+    //
+    // await new Promise(next => {
+    //   while (!isAll) {
+    //     this.githubServices.getDescriptions(this.keywords, this.search, counter).subscribe((observer: GithubJobsModel[]) => {
+    //       this.dataService.gitHubJobs.next(observer);
+    //       if (observer.length <= 50) {
+    //         isAll = true;
+    //         console.log('finished at' + counter);
+    //       }
+    //       console.log(observer);
+    //       console.log(counter);
+    //
+    //     });
+    //     counter++;
+    //     next();
+    //   }
+    // });
 
+    // await new Promise(next=> {
+    //   someAsyncTask(array[i], function(err, data){
+    //     /*.... code here and when you finish...*/
+    //     next()
+    //   })
   }
 }
+
