@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {GithubJobsService} from '../services/github-jobs.service';
 import {GithubJobsModel} from '../models/github-jobs.model';
-import {observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {DataService} from '../services/data.service';
 
 @Component({
   selector: 'app-jobs',
@@ -13,7 +13,8 @@ export class JobsComponent implements OnInit {
 
   jobs: GithubJobsModel[] = [];
 
-  constructor(private ghService: GithubJobsService) { }
+  constructor(private ghService: GithubJobsService,
+              private dataService: DataService) { }
 
   ngOnInit(): void {
     this.ghService.getResults()
@@ -28,6 +29,9 @@ export class JobsComponent implements OnInit {
       .subscribe((observer: GithubJobsModel[]) => {
       this.jobs = observer;
       console.log(this.jobs);
+    });
+    this.dataService.gitHubJobs.subscribe((observer: GithubJobsModel[]) => {
+      this.jobs = observer;
     });
   }
 

@@ -1,29 +1,29 @@
 <div>
 
   <label>
-    <input type="checkbox">
+    <input type="checkbox" [(ngModel)]="search.isFullTime" (ngModelChange)="onModelUpdate()">
     <p>Full time</p>
   </label>
 </div>
 
 <label class="location">
   <p>Location</p>
-  <input type="text" placeholder="City, state, zip code or country">
+  <input type="text" placeholder="City, state, zip code or country" [(ngModel)]="search.location" (ngModelChange)="onModelUpdate()">
 </label>
 
 <label>
-  <input type="checkbox">
+  <input type="checkbox" [(ngModel)]="search.isLondon" (ngModelChange)="onModelUpdate()">
   <p>London</p>
 </label>
 <label>
-  <input type="checkbox">
+  <input type="checkbox" [(ngModel)]="search.isAmsterdam" (ngModelChange)="onModelUpdate()">
   <p>Amsterdam</p>
 </label>
 <label>
-  <input type="checkbox">
+  <input type="checkbox" [(ngModel)]="search.isNewYork" (ngModelChange)="onModelUpdate()">
   <p>New York</p>
 </label>
 <label>
-  <input type="checkbox">
+  <input type="checkbox" [(ngModel)]="search.isBerlin" (ngModelChange)="onModelUpdate()">
   <p>Berlin</p>
 </label>
