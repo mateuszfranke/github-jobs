@@ -6,15 +6,15 @@ import { JobsComponent } from './jobs/jobs.component';
 import { JobComponent } from './jobs/job/job.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes =  [
   {path: '', component: HomeComponent},
-  {path: 'details', component: DetailsComponent}
+  {path: 'details/:id', component: DetailsComponent}
 ];
 
 @NgModule({
