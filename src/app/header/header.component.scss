@@ -20,22 +20,6 @@ $text-indent:3rem;
   grid-template-columns: 1fr;
   padding: 0 10%;
 }
-
-header{
-  font-family: 'Poppins', sans-serif;
-}
-
-h1{
-  margin: 0;
-  display: inline-block;
-  font-weight: 300;
-}
-
-h1:first-of-type{
-  font-weight: 700;
-  margin-right: 0.5rem;
-}
-
 input{
   //padding: 0;
   border: 0;
@@ -80,7 +64,4 @@ button{
   display: flex;
   justify-content: space-between;
   background-color: white;
-  //border-radius: $input--border-radius;
-
-
 }
