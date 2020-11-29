@@ -64,9 +64,7 @@ h5{
   font-size: 0.8rem;
   color: $grey-1;
   font-family: 'Roboto', sans-serif;
-
 }
-
 .flex-item{
   margin-right: 2rem;
 }
@@ -74,5 +72,23 @@ h5{
 .icon {
   margin: 0 0.5rem 0 0;
   font-size: 1rem;
+
+}
+
+.company{
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  h6{
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: $blue-2;
+  }
+}
+.company__logo{
+
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 1rem 3rem 1rem;
 
 }
