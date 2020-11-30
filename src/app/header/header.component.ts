@@ -13,53 +13,30 @@ export class HeaderComponent implements OnInit {
 
   keywords: string;
   search: SearchModel;
+  counter = 0;
+  jobs: GithubJobsModel[] = [];
 
   constructor(private githubServices: GithubJobsService,
               private dataService: DataService) {
   }
 
-
   ngOnInit(): void {
-
-    this.dataService.searchModel.subscribe((observer: SearchModel) => {
-      this.search = observer;
-    });
-
+    this.dataService.searchModel.subscribe((observer: SearchModel) => this.search = observer);
   }
 
-   onSearch() {
-    this.githubServices.getDescriptions(this.keywords, this.search, 0)
+  onSearch(): void {
+    this.githubServices.getDescriptions(this.keywords, this.search, this.counter)
       .subscribe((observer: GithubJobsModel[]) => {
-      this.dataService.gitHubJobs.next(observer);
-      if (observer.length <= 50) {
-        console.log('finished');
-      }else{
-        console.log('next');
-      }
-    });
-    //
-    // await new Promise(next => {
-    //   while (!isAll) {
-    //     this.githubServices.getDescriptions(this.keywords, this.search, counter).subscribe((observer: GithubJobsModel[]) => {
-    //       this.dataService.gitHubJobs.next(observer);
-    //       if (observer.length <= 50) {
-    //         isAll = true;
-    //         console.log('finished at' + counter);
-    //       }
-    //       console.log(observer);
-    //       console.log(counter);
-    //
-    //     });
-    //     counter++;
-    //     next();
-    //   }
-    // });
-
-    // await new Promise(next=> {
-    //   someAsyncTask(array[i], function(err, data){
-    //     /*.... code here and when you finish...*/
-    //     next()
-    //   })
+        console.log(observer.length);
+        if (observer.length < 50) {
+          this.jobs = [...observer, ...this.jobs];
+          this.dataService.gitHubJobs.next(observer);
+        } else {
+          this.counter += 1;
+          this.jobs = [...observer, ...this.jobs];
+          this.onSearch();
+        }
+      });
   }
 }
 
