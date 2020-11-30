@@ -18,29 +18,23 @@ export class JobsComponent implements OnInit {
 
   ngOnInit(): void {
     this.ghService.getResults()
-      .pipe(map((x: GithubJobsModel[]) => {
-        const arr: GithubJobsModel[] = [];
-        x.forEach(el => {
-          el.created_at = this.daysPassedFromPublication(el.created_at);
-          arr.push(el);
-        });
-        return arr;
-      }))
       .subscribe((observer: GithubJobsModel[]) => {
       this.jobs = observer;
       console.log(this.jobs);
+      // this.dataService.gitHubJobs.next(this.jobs);
     });
+
     this.dataService.gitHubJobs.subscribe((observer: GithubJobsModel[]) => {
       this.jobs = observer;
     });
   }
 
-  daysPassedFromPublication(date: string): string{
-    const currentDate = new Date();
-    const newDate = new Date(date);
-    const differenceInTime = currentDate.getTime() - newDate.getTime();
-    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
-    return `${Math.floor(differenceInDays).toString()} days ago`;
-  }
+  // daysPassedFromPublication(date: string): string{
+  //   const currentDate = new Date();
+  //   const newDate = new Date(date);
+  //   const differenceInTime = currentDate.getTime() - newDate.getTime();
+  //   const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+  //   return `${Math.floor(differenceInDays).toString()} days ago`;
+  // }
 
 }

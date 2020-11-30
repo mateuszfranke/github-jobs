@@ -12,5 +12,10 @@ export class DataService{
   constructor() {
   }
 
+  getSingle(id: string): GithubJobsModel{
+    const jobs = this.gitHubJobs.value;
+    const job = jobs.filter(x => x.id === id);
+    return job[0];
+  }
 
 }

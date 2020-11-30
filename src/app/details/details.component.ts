@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {DataService} from '../services/data.service';
+import {GithubJobsModel} from '../models/github-jobs.model';
 
 @Component({
   selector: 'app-details',
@@ -9,13 +11,16 @@ import {ActivatedRoute} from '@angular/router';
 export class DetailsComponent implements OnInit {
 
   jobId: string;
+  job: GithubJobsModel;
 
-  constructor(private rout: ActivatedRoute) {
+  constructor(private rout: ActivatedRoute,
+              private dataService: DataService) {
   }
 
   ngOnInit(): void {
     this.jobId = this.rout.snapshot.params.id;
-    console.log(this.jobId);
+    this.job = this.dataService.getSingle(this.jobId);
+    console.log(this.job);
   }
 
 }

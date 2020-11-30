@@ -22,14 +22,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
 
     this.dataService.searchModel.subscribe((observer: SearchModel) => {
-      console.log(observer);
       this.search = observer;
     });
 
   }
 
    onSearch() {
-    this.githubServices.getDescriptions(this.keywords, this.search, 0).subscribe((observer: GithubJobsModel[]) => {
+    this.githubServices.getDescriptions(this.keywords, this.search, 0)
+      .subscribe((observer: GithubJobsModel[]) => {
       this.dataService.gitHubJobs.next(observer);
       if (observer.length <= 50) {
         console.log('finished');
