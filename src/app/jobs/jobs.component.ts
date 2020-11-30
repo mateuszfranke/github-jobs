@@ -11,6 +11,8 @@ import {DataService} from '../services/data.service';
 export class JobsComponent implements OnInit {
 
   jobs: GithubJobsModel[] = [];
+  maxPages: number = 0;
+  paginationPerPage = 5;
 
   constructor(private ghService: GithubJobsService,
               private dataService: DataService) { }
@@ -24,6 +26,9 @@ export class JobsComponent implements OnInit {
 
     this.dataService.gitHubJobs.subscribe((observer: GithubJobsModel[]) => {
       this.jobs = observer;
+      this.maxPages = (this.jobs?.length / this.paginationPerPage);
+      console.log(this.maxPages);
+      // console.log('Pages:' + (this.jobs.length / 5));
     });
   }
 }

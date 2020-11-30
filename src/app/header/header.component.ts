@@ -27,10 +27,9 @@ export class HeaderComponent implements OnInit {
   onSearch(): void {
     this.githubServices.getDescriptions(this.keywords, this.search, this.counter)
       .subscribe((observer: GithubJobsModel[]) => {
-        console.log(observer.length);
         if (observer.length < 50) {
           this.jobs = [...observer, ...this.jobs];
-          this.dataService.gitHubJobs.next(observer);
+          this.dataService.gitHubJobs.next(this.jobs);
         } else {
           this.counter += 1;
           this.jobs = [...observer, ...this.jobs];
