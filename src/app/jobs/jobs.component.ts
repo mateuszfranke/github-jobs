@@ -50,7 +50,6 @@ export class JobsComponent implements OnInit {
   }
 
   getPages(totalPages: number): void{
-    console.log(totalPages);
     this.pages = [];
     if (totalPages >= 2){
       for (let i = 1; i <= totalPages; i++){
@@ -59,6 +58,5 @@ export class JobsComponent implements OnInit {
     } else{
       this.pages.push(1);
     }
-    console.log(this.pages);
   }
 }

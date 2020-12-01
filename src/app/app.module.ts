@@ -12,6 +12,7 @@ import { DetailsComponent } from './details/details.component';
 import { RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LogoComponent } from './logo/logo.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes =  [
   {path: '', component: HomeComponent},
@@ -28,6 +29,7 @@ const routes: Routes =  [
     DetailsComponent,
     HomeComponent,
     LogoComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

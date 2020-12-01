@@ -1,17 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
 @import "../variabels";
 
-small{
-  color: $grey-1;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-footer{
-  padding: 2rem 0;
-  text-align: center;
-}
 
 .grid{
   display: grid;
@@ -33,6 +22,7 @@ footer{
     ". jobs jobs"
     "footer footer footer";
     grid-row-gap: 5%;
+    grid-column-gap: 5%;
     margin: 0 5%;
   }
 
