@@ -23,17 +23,40 @@
 
 .grid{
   display: grid;
-  grid-template-columns: 1fr;
-  grid-row-gap: 2rem;
+  grid-template-areas:
+  "logo"
+  "how-2-apply"
+  "job"
+  "footer";
+  margin: 2%;
   font-family: 'Poppins', sans-serif;
   @media only screen and (min-width: 768px) {
-    grid-template-columns: 1fr 4fr;
+    grid-template-areas:
+    "logo logo logo logo logo ."
+    "how-2-apply job job job job job"
+    ". job job job job job"
+    "footer footer footer footer footer footer";
+
     margin: 0 5%;
     grid-column-gap: 5%;
+    grid-row-gap: 2%;
   }
 
 }
 
+.logo{
+  grid-area: logo;
+}
+
+.how-2-apply{
+  grid-area: how-2-apply;
+}
+.job-details{
+  grid-area: job;
+}
+.footer{
+  grid-area: footer;
+}
 
 h2{
   color: $blue-2;

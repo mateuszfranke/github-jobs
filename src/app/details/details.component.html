@@ -1,12 +1,12 @@
-<app-logo></app-logo>f
 <section class="grid">
-  <div>
+  <app-logo class="logo"></app-logo>
+  <section class="how-2-apply" >
     <div routerLink="/" class="back"><i class="material-icons arrow">arrow_right_alt</i><p>Back to search</p></div>
 
     <h5>HOW TO APPLY</h5>
     <p [innerHTML]="job?.how_to_apply"></p>
-  </div>
-  <div>
+  </section>
+  <section class="job-details">
     <h2>{{job.title}}</h2>
     <div *ngIf="job.type ==='Full Time'" class="company--job-time">Full time</div>
     <div class="flex-1 flex-item"><i class="material-icons icon">access_time</i>{{job?.created_at}}</div>
@@ -22,6 +22,7 @@
       </div>
     </div>
     <p class="company__description" [innerHTML]="job?.description"></p>
-  </div>
+  </section>
+  <app-footer class="footer"></app-footer>
+
 </section>
-<app-footer></app-footer>
