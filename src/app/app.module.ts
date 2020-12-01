@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
 import { RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { LogoComponent } from './logo/logo.component';
 
 const routes: Routes =  [
   {path: '', component: HomeComponent},
@@ -26,6 +27,7 @@ const routes: Routes =  [
     SearchComponent,
     DetailsComponent,
     HomeComponent,
+    LogoComponent,
   ],
   imports: [
     BrowserModule,

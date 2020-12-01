@@ -16,26 +16,30 @@ footer{
 .grid{
   display: grid;
   grid-template-areas:
+  "logo"
   "header"
   "search"
   "jobs"
   "footer";
-  grid-row-gap: 5%;
+  grid-row-gap: 2%;
+  margin: 0 2%;
 
   @media only screen and (min-width: 768px) {
 
     grid-template-areas:
-    "header header"
-    "search jobs"
-    "search jobs"
-    "footer footer";
+    "logo . ."
+    "header header header"
+    "search jobs jobs"
+    ". jobs jobs"
+    "footer footer footer";
     grid-row-gap: 5%;
     margin: 0 5%;
   }
 
-
 }
-
+.logo{
+  grid-area: logo;
+}
 .header{
   grid-area: header;
 }
