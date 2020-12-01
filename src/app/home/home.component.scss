@@ -6,10 +6,48 @@ small{
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   font-weight: bold;
-
 }
 
 footer{
   padding: 2rem 0;
   text-align: center;
+}
+
+.grid{
+  display: grid;
+  grid-template-areas:
+  "header"
+  "search"
+  "jobs"
+  "footer";
+  grid-row-gap: 5%;
+
+  @media only screen and (min-width: 768px) {
+
+    grid-template-areas:
+    "header header"
+    "search jobs"
+    "search jobs"
+    "footer footer";
+    grid-row-gap: 5%;
+    margin: 0 5%;
+  }
+
+
+}
+
+.header{
+  grid-area: header;
+}
+
+.search{
+  grid-area: search;
+}
+
+.jobs{
+  grid-area: jobs;
+}
+
+.footer{
+  grid-area: footer;
 }

@@ -31,8 +31,7 @@ export class JobsComponent implements OnInit {
     this.dataService.gitHubJobs.subscribe((observer: GithubJobsModel[]) => {
       this.allFetchedJobs = observer;
       this.maxPages = (this.allFetchedJobs?.length / this.paginationPerPage);
-      if (isNotNullOrUndefined(this.maxPages) && !isNaN(this.maxPages))
-      {
+      if (isNotNullOrUndefined(this.maxPages) && !isNaN(this.maxPages)) {
         this.getPages(Math.round(this.maxPages));
       }
       this.getJobs(0);
