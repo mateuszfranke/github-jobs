@@ -40,8 +40,6 @@ export class GithubJobsService{
     }));
   }
 
-
-
   daysPassedFromPublication(date: string): string{
     const currentDate = new Date();
     const newDate = new Date(date);
