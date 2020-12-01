@@ -26,6 +26,10 @@
   margin: 0.2rem;
   border-radius: 0.2rem;
 }
+.flex-item:hover{
+  background-color: $blue-1;
+  color: $white-1;
+}
 
 .dots{
   border: unset;
