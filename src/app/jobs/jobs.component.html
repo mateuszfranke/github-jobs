@@ -3,6 +3,9 @@
 </section>
 <section class="pagination">
   <div class="flex-item" (click)="onPreviousPage()"><</div>
-  <div *ngFor="let page of pages" class="flex-item" (click)="onGetJobs(page)">{{page}}</div>
+  <div *ngFor="let page of pages"
+       class="flex-item"
+       [ngClass]="(currentPageIndex/5) === page? 'flex-item--selected': 'none'"
+       (click)="onGetJobs(page)">{{page}}</div>
   <div class="flex-item" (click)="onNextPage()">></div>
 </section>

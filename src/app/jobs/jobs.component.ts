@@ -80,15 +80,14 @@ export class JobsComponent implements OnInit {
     return ((iteration + 5) - this.allFetchedJobs.length) >= 5;
   }
 
-
   onGetPages(totalPages: number): void{
     this.pages = [];
-    if (totalPages >= 2){
+    if (totalPages > 1){
       for (let i = 0; i <= totalPages; i++){
         this.pages.push(i);
       }
     } else{
-      this.pages.push(1);
+      this.pages.push(0);
     }
   }
 }
