@@ -13,6 +13,9 @@ MIT
 @angular/router
 MIT
 
+codelyzer
+MIT
+
 css-loader
 MIT
 Copyright JS Foundation and other contributors
