@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
-@import "../variabels";
+@import "../../variabels";
 $text-indent:3rem;
 
 .header--bg-image{
-  background-image: url("../../assets/c155567b9ef7880cd9b854cd00a20f4f.png");
+  background-image: url("../../../assets/c155567b9ef7880cd9b854cd00a20f4f.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -24,7 +24,7 @@ input{
   -webkit-appearance: none;
   width: 100%;
   border-radius: 2rem;
-  background-image: url("../../assets/briefcase-outline.png");
+  background-image: url("../../../assets/briefcase-outline.png");
   background-repeat: no-repeat;
   background-position: 1rem 1rem;
   background-size: 1.5rem;

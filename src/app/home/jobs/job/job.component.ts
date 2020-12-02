@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
-import {GithubJobsModel} from '../../models/github-jobs.model';
+import {GithubJobsModel} from '../../../models/github-jobs.model';
 import { EventEmitter } from '@angular/core';
 
 @Component({

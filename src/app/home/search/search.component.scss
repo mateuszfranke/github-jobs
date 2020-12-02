@@ -1,4 +1,4 @@
-@import "../variabels";
+@import "../../variabels";
 
 label{
   display: block;
@@ -37,7 +37,7 @@ input{
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     text-indent: 3rem;
 
-    background-image: url("../../assets/earth (1).png");
+    background-image: url("../../../assets/earth (1).png");
     background-repeat: no-repeat;
     background-position: 1rem;
     background-size: 1.3rem;

@@ -1,7 +1,7 @@
 import {Component, isDevMode, OnInit} from '@angular/core';
-import {GithubJobsService} from '../services/github-jobs.service';
-import {GithubJobsModel} from '../models/github-jobs.model';
-import {DataService} from '../services/data.service';
+import {GithubJobsService} from '../../services/github-jobs.service';
+import {GithubJobsModel} from '../../models/github-jobs.model';
+import {DataService} from '../../services/data.service';
 import {isNotNullOrUndefined} from 'codelyzer/util/isNotNullOrUndefined';
 
 @Component({
