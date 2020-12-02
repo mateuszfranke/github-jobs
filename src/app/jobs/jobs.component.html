@@ -2,7 +2,7 @@
   <app-job [routerLink]="'details/'+job.id" *ngFor="let job of jobs" [job]="job"></app-job>
 </section>
 <section class="pagination">
-  <div class="flex-item"><</div>
-  <div *ngFor="let page of pages" class="flex-item" (click)="getJobs(page)">{{page}}</div>
-  <div class="flex-item">></div>
+  <div class="flex-item" (click)="onPreviousPage()"><</div>
+  <div *ngFor="let page of pages" class="flex-item" (click)="onGetJobs(page)">{{page}}</div>
+  <div class="flex-item" (click)="onNextPage()">></div>
 </section>

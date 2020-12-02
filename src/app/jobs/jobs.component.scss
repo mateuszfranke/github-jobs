@@ -10,7 +10,10 @@
 
 .pagination {
   display: flex;
+  flex-wrap: wrap;
   font-family:'Roboto', sans-serif;
+  justify-content: flex-end;
+  margin-top: 1rem;
 }
 
 .flex-item{
@@ -27,9 +30,4 @@
 .flex-item:hover{
   background-color: $blue-1;
   color: $white-1;
-}
-
-.dots{
-  border: unset;
-  font-weight: bolder;
 }

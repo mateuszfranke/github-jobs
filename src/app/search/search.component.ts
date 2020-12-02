@@ -16,6 +16,8 @@ export class SearchComponent implements OnInit{
 
   ngOnInit(): void {
     this.search.isFullTime = false;
+    this.dataService.searchModel.next(this.search);
+
   }
 
   onModelUpdate(): void {
