@@ -1,5 +1,7 @@
 <section class="grid">
-  <app-job [routerLink]="'details/'+job.id" *ngFor="let job of jobs" [job]="job"></app-job>
+  <app-job [routerLink]="'details/'+job.id" *ngFor="let job of jobs"
+           class="job"
+           [job]="job"></app-job>
 </section>
 <section class="pagination">
   <div class="flex-item" (click)="onPreviousPage()"><</div>

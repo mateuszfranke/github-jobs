@@ -7,6 +7,9 @@
   border-radius: 4px;
 }
 
+.job{
+  cursor: pointer;
+}
 
 .pagination {
   display: flex;
@@ -15,7 +18,6 @@
   justify-content: flex-end;
   margin-top: 1rem;
 }
-
 .flex-item{
   width: 2rem;
   height: 2rem;
@@ -26,12 +28,12 @@
   align-items: center;
   margin: 0.2rem;
   border-radius: 0.2rem;
+  cursor: pointer;
 }
 .flex-item:hover{
   background-color: $blue-1;
   color: $white-1;
 }
-
 .flex-item--selected{
   background-color: $blue-1;
   color: $white-1;
