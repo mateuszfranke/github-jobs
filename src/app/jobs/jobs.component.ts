@@ -35,6 +35,7 @@ export class JobsComponent implements OnInit {
       if (isNotNullOrUndefined(this.maxPages) && !isNaN(this.maxPages)) {
         this.onGetPages(Math.round(this.maxPages));
       }
+      this.currentPageIndex = 0;
       this.onGetJobs(this.currentPageIndex);
     });
   }
@@ -57,7 +58,6 @@ export class JobsComponent implements OnInit {
     const pageIndex = (this.currentPageIndex + this.paginationPerPage);
 
     if (this.outOfArray(pageIndex)) {
-      console.log('0 elements in next page');
     }else{
       this.currentPageIndex = pageIndex;
       const howMany = (pageIndex + (this.paginationPerPage));
@@ -68,27 +68,23 @@ export class JobsComponent implements OnInit {
 
   onPreviousPage(): void{
     const pageIndex = (this.currentPageIndex - this.paginationPerPage);
-    this.currentPageIndex = pageIndex;
-    const howMany = (pageIndex + (this.paginationPerPage));
-    this.jobs = this.allFetchedJobs?.slice(pageIndex, howMany);
+    if (pageIndex < 0) {
+    }else{
+      this.currentPageIndex = pageIndex;
+      const howMany = (pageIndex + (this.paginationPerPage));
+      this.jobs = this.allFetchedJobs?.slice(pageIndex, howMany);
+    }
   }
 
   outOfArray(iteration: number): boolean{
-    console.log((iteration + 5));
-    console.log(this.allFetchedJobs.length);
-    console.log(((iteration + 5) - this.allFetchedJobs.length));
-
-    if (((iteration + 5) - this.allFetchedJobs.length) < 5){
-      return false;
-    }else{
-      return true;
-    }
+    return ((iteration + 5) - this.allFetchedJobs.length) >= 5;
   }
+
 
   onGetPages(totalPages: number): void{
     this.pages = [];
     if (totalPages >= 2){
-      for (let i = 1; i <= totalPages; i++){
+      for (let i = 0; i <= totalPages; i++){
         this.pages.push(i);
       }
     } else{
