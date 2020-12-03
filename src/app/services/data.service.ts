@@ -8,6 +8,7 @@ export class DataService{
 
   gitHubJobs: BehaviorSubject<GithubJobsModel[]> = new BehaviorSubject(null);
   searchModel: BehaviorSubject<SearchModel> = new BehaviorSubject(null);
+  keywords: BehaviorSubject<string> = new BehaviorSubject('');
 
   constructor() {
   }

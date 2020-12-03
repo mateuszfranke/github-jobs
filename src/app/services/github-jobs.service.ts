@@ -5,11 +5,13 @@ import {GithubJobsModel} from '../models/github-jobs.model';
 import {Observable} from 'rxjs';
 import {SearchModel} from '../models/search.model';
 import {map} from 'rxjs/operators';
+import {DataService} from './data.service';
 
 @Injectable({providedIn: 'root'})
 export class GithubJobsService{
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private data: DataService) {
   }
 
   getResults(): Observable<GithubJobsModel[]>{
@@ -24,9 +26,9 @@ export class GithubJobsService{
         return jobs;
       }));
   }
-  getDescriptions(description: string, search: SearchModel, page: number): Observable<GithubJobsModel[]>{
+  getDescriptions(search: SearchModel, page: number): Observable<GithubJobsModel[]>{
     // https://jobs.github.com/positions.json?description=python&full_time=true&location=sf
-    const githubJobsUrl = `https://jobs.github.com/positions.json?description=${description}&full_time=${search.isFullTime}&page=${page}`;
+    const githubJobsUrl = `https://jobs.github.com/positions.json?description=${this.data.keywords.value}&full_time=${search.isFullTime}&page=${page}&location=${search.location}`;
     const url = `${environment.herokuUrl}${githubJobsUrl}`;
     console.log(githubJobsUrl);
     return this.http.get<GithubJobsModel[]>(url)

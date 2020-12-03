@@ -11,7 +11,7 @@ import {SearchModel} from '../../models/search.model';
 })
 export class HeaderComponent implements OnInit {
 
-  keywords: string;
+  keywords: string = '';
   search: SearchModel;
   counter = 0;
   jobs: GithubJobsModel[] = [];
@@ -24,8 +24,12 @@ export class HeaderComponent implements OnInit {
     this.dataService.searchModel.subscribe((observer: SearchModel) => this.search = observer);
   }
 
+  onKeyword($event): void{
+    this.dataService.keywords.next($event);
+  }
+
   onSearch(): void {
-    this.githubServices.getDescriptions(this.keywords, this.search, this.counter)
+    this.githubServices.getDescriptions(this.search, this.counter)
       .subscribe((observer: GithubJobsModel[]) => {
         if (observer.length < 50) {
           this.jobs = [...observer, ...this.jobs];
