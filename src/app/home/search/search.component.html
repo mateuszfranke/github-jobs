@@ -1,28 +1,31 @@
 <div>
   <label>
-    <input type="checkbox" [(ngModel)]="search.isFullTime" (ngModelChange)="onModelUpdate()">
+    <input type="checkbox" [(ngModel)]="isFullTime" (ngModelChange)="onFullTime()">
     <p>Full time</p>
   </label>
 </div>
 
 <label class="location">
   <p>Location</p>
-  <input type="text" placeholder="City, state, zip code or country" [(ngModel)]="search.location" (ngModelChange)="onModelUpdate()">
+  <input type="text" placeholder="City, state, zip code or country" [(ngModel)]="location"
+         (ngModelChange)="onLocation()">
 </label>
 
-<label>
-  <input type="checkbox" [(ngModel)]="search.isLondon" (ngModelChange)="onModelUpdate()">
-  <p>London</p>
-</label>
-<label>
-  <input type="checkbox" [(ngModel)]="search.isAmsterdam" (ngModelChange)="onModelUpdate()">
-  <p>Amsterdam</p>
-</label>
-<label>
-  <input type="checkbox" [(ngModel)]="search.isNewYork" (ngModelChange)="onModelUpdate()">
-  <p>New York</p>
-</label>
-<label>
-  <input type="checkbox" [(ngModel)]="search.isBerlin" (ngModelChange)="onModelUpdate()">
-  <p>Berlin</p>
-</label>
+<form>
+  <div>
+    <input [(ngModel)]="val" [checked]="isLondon"  type="radio" name="Location" value="London" id="London" >
+    <label class="label" for="London">London</label>
+  </div>
+  <div>
+    <input [(ngModel)]="val" [checked]="isBerlin" type="radio" name="Location" value="Berlin" id="Berlin">
+    <label class="label" for="Berlin">Berlin</label>
+  </div>
+  <div>
+    <input [(ngModel)]="val" [checked]="isNewYork" type="radio" name="Location" value="New York" id="NewYork">
+    <label class="label" for="NewYork">New York</label>
+  </div>
+  <div>
+    <input [(ngModel)]="val" [checked]="isRemote" type="radio" name="Location" value="Remote" id="Remote">
+    <label class="label" for="Remote">Remote</label>
+  </div>
+</form>

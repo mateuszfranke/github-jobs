@@ -26,9 +26,9 @@ export class GithubJobsService{
         return jobs;
       }));
   }
-  getDescriptions(search: SearchModel, page: number): Observable<GithubJobsModel[]>{
+  getDescriptions(page: number): Observable<GithubJobsModel[]>{
     // https://jobs.github.com/positions.json?description=python&full_time=true&location=sf
-    const githubJobsUrl = `https://jobs.github.com/positions.json?description=${this.data.keywords.value}&full_time=${search.isFullTime}&page=${page}&location=${search.location}`;
+    const githubJobsUrl = `https://jobs.github.com/positions.json?description=${this.data.keywords.value}&full_time=${this.data.isFullTime.value}&page=${page}&location=${this.data.location.value}`;
     const url = `${environment.herokuUrl}${githubJobsUrl}`;
     console.log(githubJobsUrl);
     return this.http.get<GithubJobsModel[]>(url)

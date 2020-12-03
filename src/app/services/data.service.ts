@@ -7,8 +7,9 @@ import {SearchModel} from '../models/search.model';
 export class DataService{
 
   gitHubJobs: BehaviorSubject<GithubJobsModel[]> = new BehaviorSubject(null);
-  searchModel: BehaviorSubject<SearchModel> = new BehaviorSubject(null);
   keywords: BehaviorSubject<string> = new BehaviorSubject('');
+  isFullTime: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  location: BehaviorSubject<string> = new BehaviorSubject('');
 
   constructor() {
   }

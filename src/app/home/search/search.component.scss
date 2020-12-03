@@ -14,9 +14,29 @@ p{
   font-size: 1.2rem;
 }
 
+.label{
+  margin: 0 0 0 0.5rem;
+  display: block;
+  color: $blue-2;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
 input{
   display: inline-block;
   transform: scale(1.4);
+  margin: 0;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+form > div{
+  display: flex;
+  align-items: center;
+
 }
 
 .location{
