@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {GithubJobsService} from '../../services/github-jobs.service';
 import {DataService} from '../../services/data.service';
 import {GithubJobsModel} from '../../models/github-jobs.model';
-import {SearchModel} from '../../models/search.model';
 
 @Component({
   selector: 'app-header',

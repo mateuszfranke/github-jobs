@@ -3,19 +3,27 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {GithubJobsModel} from '../models/github-jobs.model';
 import {Observable} from 'rxjs';
-import {SearchModel} from '../models/search.model';
 import {map} from 'rxjs/operators';
 import {DataService} from './data.service';
 
 @Injectable({providedIn: 'root'})
-export class GithubJobsService{
+export class GithubJobsService {
 
   constructor(private http: HttpClient,
               private data: DataService) {
   }
 
-  getResults(): Observable<GithubJobsModel[]>{
-    const url = `${environment.herokuUrl}` + 'https://jobs.github.com/positions.json?description=python&location=new+york';
+  init(): Observable<GithubJobsModel[]> {
+    let githubJobsUrl;
+    const position = this.data.position.value;
+    console.log(position);
+    if (position !== null){
+      githubJobsUrl = `https://jobs.github.com/positions.json?lat=${position.lat}&long=${position.lng}`;
+    }else{
+      githubJobsUrl = `https://jobs.github.com/positions.json?lat=37.3229978&long=-122.0321823`;
+    }
+    console.log(githubJobsUrl);
+    const url = `${environment.herokuUrl}${githubJobsUrl}`;
     return this.http.get<GithubJobsModel[]>(url)
       .pipe(map((observer: GithubJobsModel[]) => {
         const jobs: GithubJobsModel[] = [];
@@ -26,23 +34,24 @@ export class GithubJobsService{
         return jobs;
       }));
   }
-  getDescriptions(page: number): Observable<GithubJobsModel[]>{
+
+  getDescriptions(page: number): Observable<GithubJobsModel[]> {
     // https://jobs.github.com/positions.json?description=python&full_time=true&location=sf
     const githubJobsUrl = `https://jobs.github.com/positions.json?description=${this.data.keywords.value}&full_time=${this.data.isFullTime.value}&page=${page}&location=${this.data.location.value}`;
     const url = `${environment.herokuUrl}${githubJobsUrl}`;
     console.log(githubJobsUrl);
     return this.http.get<GithubJobsModel[]>(url)
       .pipe(map((observer: GithubJobsModel[]) => {
-      const jobs: GithubJobsModel[] = [];
-      observer.forEach(el => {
-        el.created_at = this.daysPassedFromPublication(el.created_at);
-        jobs.push(el);
-      });
-      return jobs;
-    }));
+        const jobs: GithubJobsModel[] = [];
+        observer.forEach(el => {
+          el.created_at = this.daysPassedFromPublication(el.created_at);
+          jobs.push(el);
+        });
+        return jobs;
+      }));
   }
 
-  daysPassedFromPublication(date: string): string{
+  daysPassedFromPublication(date: string): string {
     const currentDate = new Date();
     const newDate = new Date(date);
     const differenceInTime = currentDate.getTime() - newDate.getTime();

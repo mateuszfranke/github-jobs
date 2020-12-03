@@ -23,14 +23,12 @@ export class JobsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataService.gitHubJobs.next([]);
-    this.ghService.getResults()
-      .subscribe((observer: GithubJobsModel[]) => {
-        this.jobs = observer;
-        this.dataService.gitHubJobs.next(observer);
-      });
 
     this.dataService.gitHubJobs.subscribe((observer: GithubJobsModel[]) => {
+
+      if (observer?.length === 0) {
+        alert('No jobs in area 😖');
+      }
       this.onNewQuery();
       this.allFetchedJobs = observer;
       this.maxPages = (this.allFetchedJobs?.length / this.paginationPerPage);
@@ -39,29 +37,33 @@ export class JobsComponent implements OnInit {
       }
       this.currentPageIndex = 0;
       this.onGetJobs(this.currentPageIndex);
+      if (isDevMode()) {
+        console.log(this.allFetchedJobs);
+      }
     });
 
   }
+
   onGetJobs(currentPage: number): void {
     let startIndex;
-    if (currentPage === 0){
+    if (currentPage === 0) {
       startIndex = 0;
-    }else{
+    } else {
       startIndex = (currentPage * this.paginationPerPage);
       this.currentPageIndex = startIndex;
     }
     const howMany = (startIndex + (this.paginationPerPage));
-    if (isDevMode()){
+    if (isDevMode()) {
       console.log(`${startIndex}:${howMany}`);
     }
     this.jobs = this.allFetchedJobs?.slice(startIndex, howMany);
   }
 
-  onNextPage(): void{
+  onNextPage(): void {
     const pageIndex = (this.currentPageIndex + this.paginationPerPage);
 
     if (this.outOfArray(pageIndex)) {
-    }else{
+    } else {
       this.currentPageIndex = pageIndex;
       const howMany = (pageIndex + (this.paginationPerPage));
       this.jobs = this.outOfArray(pageIndex) ? this.jobs : this.allFetchedJobs?.slice(pageIndex, howMany);
@@ -69,32 +71,32 @@ export class JobsComponent implements OnInit {
 
   }
 
-  onPreviousPage(): void{
+  onPreviousPage(): void {
     const pageIndex = (this.currentPageIndex - this.paginationPerPage);
     if (pageIndex < 0) {
-    }else{
+    } else {
       this.currentPageIndex = pageIndex;
       const howMany = (pageIndex + (this.paginationPerPage));
       this.jobs = this.allFetchedJobs?.slice(pageIndex, howMany);
     }
   }
 
-  outOfArray(iteration: number): boolean{
+  outOfArray(iteration: number): boolean {
     return ((iteration + 5) - this.allFetchedJobs.length) >= 5;
   }
 
-  onGetPages(totalPages: number): void{
+  onGetPages(totalPages: number): void {
     this.pages = [];
-    if (totalPages > 1){
-      for (let i = 0; i <= totalPages; i++){
+    if (totalPages > 1) {
+      for (let i = 0; i <= totalPages; i++) {
         this.pages.push(i);
       }
-    } else{
+    } else {
       this.pages.push(0);
     }
   }
 
-  onNewQuery(): void{
+  onNewQuery(): void {
     this.jobs = [];
     this.maxPages = 0;
     this.currentPageIndex = 0;

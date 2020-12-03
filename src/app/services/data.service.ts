@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {GithubJobsModel} from '../models/github-jobs.model';
 import {BehaviorSubject} from 'rxjs';
-import {SearchModel} from '../models/search.model';
+import {PositionModel} from '../models/position.model';
 
 @Injectable({providedIn: 'root'})
 export class DataService{
@@ -10,6 +10,7 @@ export class DataService{
   keywords: BehaviorSubject<string> = new BehaviorSubject('');
   isFullTime: BehaviorSubject<boolean> = new BehaviorSubject(false);
   location: BehaviorSubject<string> = new BehaviorSubject('');
+  position: BehaviorSubject<PositionModel> = new BehaviorSubject(null);
 
   constructor() {
   }
@@ -20,4 +21,20 @@ export class DataService{
     return job[0];
   }
 
+
+  getPosition(): Promise<any>
+  {
+
+    return new Promise((resolve, reject) => {
+
+      navigator.geolocation.getCurrentPosition(resp => {
+
+          resolve({lng: resp.coords.longitude, lat: resp.coords.latitude});
+        },
+        err => {
+          reject(err);
+        });
+    });
+
+  }
 }
