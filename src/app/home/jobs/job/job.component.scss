@@ -35,6 +35,8 @@
   color: $blue-2;
   font-size: 1.2rem;
   margin: 0;
+  overflow: hidden;
+  display: block;
 }
 .company--job-time{
   border: 2px solid $blue-2;
@@ -68,4 +70,10 @@
 .icon {
   font-size: 1.2rem;
 
+}
+
+.company-info{
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 2rem;
 }
