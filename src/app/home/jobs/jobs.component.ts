@@ -23,7 +23,6 @@ export class JobsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.dataService.gitHubJobs.subscribe((observer: GithubJobsModel[]) => {
 
       if (observer?.length === 0) {

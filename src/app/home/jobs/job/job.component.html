@@ -4,7 +4,7 @@
   </div>
   <div>
     <h5 class="company--name">{{job.company}}</h5>
-    <p class="company--position">{{job.title}}</p>
+    <p class="company--position">{{job.title.length > 34 ? job.title.slice(0,35) + '...': job.title }}</p>
     <div class="company--job-time">{{job.type}}</div>
     <div class="flex">
       <div class="flex-1 flex-item"><i class="material-icons icon">public</i>{{job.location}}</div>
