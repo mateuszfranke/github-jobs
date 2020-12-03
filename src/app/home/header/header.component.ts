@@ -20,14 +20,14 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.dataService.searchModel.subscribe((observer: SearchModel) => this.search = observer);
   }
 
-  onKeyword($event): void{
+  onKeyword($event): void {
     this.dataService.keywords.next($event);
   }
 
   onSearch(): void {
+    this.jobs = [];
     this.githubServices.getDescriptions(this.counter)
       .subscribe((observer: GithubJobsModel[]) => {
         if (observer.length < 50) {

@@ -23,6 +23,7 @@ export class JobsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dataService.gitHubJobs.next([]);
     this.ghService.getResults()
       .subscribe((observer: GithubJobsModel[]) => {
         this.jobs = observer;
@@ -30,6 +31,7 @@ export class JobsComponent implements OnInit {
       });
 
     this.dataService.gitHubJobs.subscribe((observer: GithubJobsModel[]) => {
+      this.onNewQuery();
       this.allFetchedJobs = observer;
       this.maxPages = (this.allFetchedJobs?.length / this.paginationPerPage);
       if (isNotNullOrUndefined(this.maxPages) && !isNaN(this.maxPages)) {
@@ -38,6 +40,7 @@ export class JobsComponent implements OnInit {
       this.currentPageIndex = 0;
       this.onGetJobs(this.currentPageIndex);
     });
+
   }
   onGetJobs(currentPage: number): void {
     let startIndex;
@@ -89,5 +92,11 @@ export class JobsComponent implements OnInit {
     } else{
       this.pages.push(0);
     }
+  }
+
+  onNewQuery(): void{
+    this.jobs = [];
+    this.maxPages = 0;
+    this.currentPageIndex = 0;
   }
 }

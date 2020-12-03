@@ -13,19 +13,35 @@
 
 <form>
   <div>
-    <input [(ngModel)]="val" [checked]="isLondon"  type="radio" name="Location" value="London" id="London" >
+    <input
+      [(ngModel)]="radioValue"
+      [checked]="isLondon"
+      (ngModelChange)="onRadio()"
+      type="radio" name="Location" value="London" id="London" >
     <label class="label" for="London">London</label>
   </div>
   <div>
-    <input [(ngModel)]="val" [checked]="isBerlin" type="radio" name="Location" value="Berlin" id="Berlin">
+    <input
+      [(ngModel)]="radioValue"
+      [checked]="isBerlin"
+      (ngModelChange)="onRadio()"
+      type="radio" name="Location" value="Berlin" id="Berlin">
     <label class="label" for="Berlin">Berlin</label>
   </div>
   <div>
-    <input [(ngModel)]="val" [checked]="isNewYork" type="radio" name="Location" value="New York" id="NewYork">
+    <input
+      [(ngModel)]="radioValue"
+      [checked]="isNewYork"
+      (ngModelChange)="onRadio()"
+      type="radio" name="Location" value="New York" id="NewYork">
     <label class="label" for="NewYork">New York</label>
   </div>
   <div>
-    <input [(ngModel)]="val" [checked]="isRemote" type="radio" name="Location" value="Remote" id="Remote">
+    <input
+      [(ngModel)]="radioValue"
+      [checked]="isRemote"
+      (ngModelChange)="onRadio()"
+      type="radio" name="Location" value="Remote" id="Remote">
     <label class="label" for="Remote">Remote</label>
   </div>
 </form>
