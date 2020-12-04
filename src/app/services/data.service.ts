@@ -11,6 +11,7 @@ export class DataService{
   isFullTime: BehaviorSubject<boolean> = new BehaviorSubject(false);
   location: BehaviorSubject<string> = new BehaviorSubject('');
   position: BehaviorSubject<PositionModel> = new BehaviorSubject(null);
+  loading: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
   constructor() {
   }
@@ -20,10 +21,7 @@ export class DataService{
     const job = jobs.filter(x => x.id === id);
     return job[0];
   }
-
-
-  getPosition(): Promise<any>
-  {
+  getPosition(): Promise<any> {
 
     return new Promise((resolve, reject) => {
 

@@ -26,6 +26,9 @@ export class HeaderComponent implements OnInit {
   }
 
   onSearch(): void {
+    this.dataService.loading.next(true);
+    console.log(this.dataService.loading.value);
+    this.dataService.gitHubJobs.next([]);
     this.jobs = [];
     this.githubServices.getDescriptions(this.counter)
       .subscribe((observer: GithubJobsModel[]) => {

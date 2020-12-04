@@ -16,14 +16,12 @@ export class HomeComponent implements OnInit {
               private gh: GithubJobsService) {
     this.data.getPosition().then(pos =>
     {
-      // console.log(`Positon: ${pos.lng} ${pos.lat}`);
       this.data.position.next({lng: pos.lng , lat: pos.lat});
       this.gh.init().subscribe( (jobs: GithubJobsModel[]) => data.gitHubJobs.next(jobs));
     });
   }
 
   ngOnInit(): void {
-
   }
 
 }

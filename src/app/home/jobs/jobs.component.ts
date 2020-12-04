@@ -19,7 +19,7 @@ export class JobsComponent implements OnInit {
   currentPageIndex: number = 0;
 
   constructor(private ghService: GithubJobsService,
-              private dataService: DataService) {
+              public dataService: DataService) {
   }
 
   ngOnInit(): void {
@@ -39,6 +39,8 @@ export class JobsComponent implements OnInit {
       if (isDevMode()) {
         console.log(this.allFetchedJobs);
       }
+      this.dataService.loading.next(false);
+      console.log(this.dataService.loading.value);
     });
 
   }

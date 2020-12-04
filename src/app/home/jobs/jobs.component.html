@@ -2,8 +2,9 @@
   <app-job [routerLink]="'details/'+job.id" *ngFor="let job of jobs"
            class="job"
            [job]="job"></app-job>
+
 </section>
-<section class="pagination">
+<section class="pagination" *ngIf="jobs !== undefined && jobs.length > 0 && jobs !== null">
   <div class="flex-item" (click)="onPreviousPage()"><</div>
   <div *ngFor="let page of pages"
        class="flex-item"
@@ -11,3 +12,5 @@
        (click)="onGetJobs(page)">{{page}}</div>
   <div class="flex-item" (click)="onNextPage()">></div>
 </section>
+
+<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
