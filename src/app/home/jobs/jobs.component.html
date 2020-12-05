@@ -1,6 +1,6 @@
 <section class="grid">
   <div class="lds-ellipsis loader" *ngIf="dataService.loading.value"><div></div><div></div><div></div><div></div></div>
-
+  <div class="no-results" *ngIf="dataService.noResults.value">No results</div>
   <app-job [routerLink]="'details/'+job.id" *ngFor="let job of jobs"
            class="job"
            [job]="job"></app-job>

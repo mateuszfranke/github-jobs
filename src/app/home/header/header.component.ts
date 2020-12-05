@@ -31,10 +31,18 @@ export class HeaderComponent implements OnInit {
     this.getJobsData();
   }
 
+  isEmptySearch(jobs: GithubJobsModel[]): void{
+    if (jobs?.length < 1) {
+      this.dataService.noResults.next(true);
+    }else{
+      this.dataService.noResults.next(false);
+    }
+  }
+
   getJobsData(): void {
-    this.jobs = [];
     this.githubServices.getDescriptions(this.counter)
       .subscribe((observer: GithubJobsModel[]) => {
+        this.isEmptySearch(observer);
         if (observer.length < 50) {
           this.jobs = [...observer, ...this.jobs];
           this.counter = 0;
@@ -48,11 +56,13 @@ export class HeaderComponent implements OnInit {
   }
 
   clearCurrentJobs(): void {
+    this.jobs = [];
     this.dataService.gitHubJobs.next([]);
   }
 
   startLoader(): void {
     this.dataService.loading.next(true);
+    this.dataService.noResults.next(false);
   }
 }
 

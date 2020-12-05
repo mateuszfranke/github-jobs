@@ -12,6 +12,7 @@ export class DataService{
   location: BehaviorSubject<string> = new BehaviorSubject('');
   position: BehaviorSubject<PositionModel> = new BehaviorSubject(null);
   loading: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  noResults: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
   constructor() {
   }
