@@ -16,13 +16,14 @@
   @media only screen and (min-width: 768px) {
 
     grid-template-areas:
-    "logo . ."
-    "header header header"
-    "search jobs jobs"
-    ". jobs jobs"
-    "footer footer footer";
+    "logo . "
+    "header header "
+    "search jobs "
+    ". jobs"
+    "footer footer ";
     grid-row-gap: 5%;
     grid-column-gap: 5%;
+    grid-template-columns: 1fr 3fr;
     margin: 0 5%;
   }
 
