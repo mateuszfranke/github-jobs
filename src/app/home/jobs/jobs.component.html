@@ -1,4 +1,6 @@
 <section class="grid">
+  <div class="lds-ellipsis loader" *ngIf="dataService.loading.value"><div></div><div></div><div></div><div></div></div>
+
   <app-job [routerLink]="'details/'+job.id" *ngFor="let job of jobs"
            class="job"
            [job]="job"></app-job>
@@ -13,4 +15,3 @@
   <div class="flex-item" (click)="onNextPage()">></div>
 </section>
 
-<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>

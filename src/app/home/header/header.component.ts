@@ -26,21 +26,33 @@ export class HeaderComponent implements OnInit {
   }
 
   onSearch(): void {
-    this.dataService.loading.next(true);
-    console.log(this.dataService.loading.value);
-    this.dataService.gitHubJobs.next([]);
+    this.clearCurrentJobs();
+    this.startLoader();
+    this.getJobsData();
+  }
+
+  getJobsData(): void {
     this.jobs = [];
     this.githubServices.getDescriptions(this.counter)
       .subscribe((observer: GithubJobsModel[]) => {
         if (observer.length < 50) {
           this.jobs = [...observer, ...this.jobs];
+          this.counter = 0;
           this.dataService.gitHubJobs.next(this.jobs);
         } else {
           this.counter += 1;
           this.jobs = [...observer, ...this.jobs];
-          this.onSearch();
+          this.getJobsData();
         }
       });
+  }
+
+  clearCurrentJobs(): void {
+    this.dataService.gitHubJobs.next([]);
+  }
+
+  startLoader(): void {
+    this.dataService.loading.next(true);
   }
 }
 

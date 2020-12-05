@@ -25,9 +25,10 @@ export class JobsComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.gitHubJobs.subscribe((observer: GithubJobsModel[]) => {
 
-      if (observer?.length === 0) {
-        alert('No jobs in area 😖');
-      }
+
+      // if (observer?.length === 0) {
+      //   alert('No jobs in area 😖');
+      // }
       this.onNewQuery();
       this.allFetchedJobs = observer;
       this.maxPages = (this.allFetchedJobs?.length / this.paginationPerPage);
