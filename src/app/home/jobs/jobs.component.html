@@ -1,5 +1,10 @@
 <section class="grid">
-  <div class="lds-ellipsis loader" *ngIf="dataService.loading.value"><div></div><div></div><div></div><div></div></div>
+  <div class="lds-ellipsis loader" *ngIf="dataService.loading.value">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
   <div class="no-results" *ngIf="dataService.noResults.value">No results</div>
   <app-job [routerLink]="'details/'+job.id" *ngFor="let job of jobs"
            class="job"
@@ -10,8 +15,8 @@
   <div class="flex-item" (click)="onPreviousPage()"><</div>
   <div *ngFor="let page of pages"
        class="flex-item"
-       [ngClass]="(currentPageIndex/5) === page? 'flex-item--selected': 'none'"
-       (click)="onGetJobs(page)">{{page}}</div>
+       [ngClass]="((currentPageIndex/5) + 1) === page? 'flex-item--selected': 'none'"
+       (click)="onGetJobs((page))">{{page}}</div>
   <div class="flex-item" (click)="onNextPage()">></div>
 </section>
 

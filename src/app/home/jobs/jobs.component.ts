@@ -28,7 +28,7 @@ export class JobsComponent implements OnInit {
       this.allFetchedJobs = observer;
       this.maxPages = (this.allFetchedJobs?.length / this.paginationPerPage);
       if (isNotNullOrUndefined(this.maxPages) && !isNaN(this.maxPages)) {
-        this.onGetPages(Math.round(this.maxPages));
+        this.pagination(Math.round(this.maxPages));
       }
       this.currentPageIndex = 0;
       this.onGetJobs(this.currentPageIndex);
@@ -36,19 +36,22 @@ export class JobsComponent implements OnInit {
         console.log(this.allFetchedJobs);
       }
       this.dataService.loading.next(false);
-      console.log(this.dataService.loading.value);
     });
-
   }
 
   onGetJobs(currentPage: number): void {
     let startIndex;
+    if (currentPage > 0) {
+      currentPage -= 1;
+    }
+
     if (currentPage === 0) {
       startIndex = 0;
     } else {
       startIndex = (currentPage * this.paginationPerPage);
-      this.currentPageIndex = startIndex;
     }
+    this.currentPageIndex = startIndex;
+
     const howMany = (startIndex + (this.paginationPerPage));
     if (isDevMode()) {
       console.log(`${startIndex}:${howMany}`);
@@ -58,14 +61,12 @@ export class JobsComponent implements OnInit {
 
   onNextPage(): void {
     const pageIndex = (this.currentPageIndex + this.paginationPerPage);
-
     if (this.outOfArray(pageIndex)) {
     } else {
       this.currentPageIndex = pageIndex;
       const howMany = (pageIndex + (this.paginationPerPage));
       this.jobs = this.outOfArray(pageIndex) ? this.jobs : this.allFetchedJobs?.slice(pageIndex, howMany);
     }
-
   }
 
   onPreviousPage(): void {
@@ -82,14 +83,14 @@ export class JobsComponent implements OnInit {
     return ((iteration + 5) - this.allFetchedJobs.length) >= 5;
   }
 
-  onGetPages(totalPages: number): void {
+  pagination(totalPages: number): void {
     this.pages = [];
     if (totalPages > 1) {
-      for (let i = 0; i <= totalPages; i++) {
-        this.pages.push(i);
+      for (let i = 0; i < totalPages; i++) {
+        this.pages.push((i + 1));
       }
     } else {
-      this.pages.push(0);
+      this.pages.push(1);
     }
   }
 

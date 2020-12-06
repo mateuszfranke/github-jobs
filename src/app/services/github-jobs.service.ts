@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, isDevMode} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {GithubJobsModel} from '../models/github-jobs.model';
@@ -16,13 +16,11 @@ export class GithubJobsService {
   init(): Observable<GithubJobsModel[]> {
     let githubJobsUrl;
     const position = this.data.position.value;
-    console.log(position);
     if (position !== null){
       githubJobsUrl = `https://jobs.github.com/positions.json?lat=${position.lat}&long=${position.lng}`;
     }else{
       githubJobsUrl = `https://jobs.github.com/positions.json?lat=37.3229978&long=-122.0321823`;
     }
-    console.log(githubJobsUrl);
     const url = `${environment.herokuUrl}${githubJobsUrl}`;
     return this.http.get<GithubJobsModel[]>(url)
       .pipe(map((observer: GithubJobsModel[]) => {
@@ -39,7 +37,9 @@ export class GithubJobsService {
     // https://jobs.github.com/positions.json?description=python&full_time=true&location=sf
     const githubJobsUrl = `https://jobs.github.com/positions.json?description=${this.data.keywords.value}&full_time=${this.data.isFullTime.value}&page=${page}&location=${this.data.location.value}`;
     const url = `${environment.herokuUrl}${githubJobsUrl}`;
-    console.log(githubJobsUrl);
+    if (isDevMode()){
+      console.log(githubJobsUrl);
+    }
     return this.http.get<GithubJobsModel[]>(url)
       .pipe(map((observer: GithubJobsModel[]) => {
         const jobs: GithubJobsModel[] = [];
